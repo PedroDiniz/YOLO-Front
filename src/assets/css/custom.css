@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "proxima-nova", sans-serif;
+}
+
+/* ----------------INPUT-------------------------------------------------- */
+
+/* basic stylings */
+.container {
+  font-family: "Roboto";
+  width: 600px;
+  margin: 30px auto 0;
+  display: block;
+  background: #4b204b;
+  padding: 10px 50px 50px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+h2 small {
+  font-weight: normal;
+  color: #4b204b;
+  display: block;
+}
+
+/* form starting stylings */
+.group {
+  position: relative;
+  margin-bottom: 45px;
+}
+input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #4b204b;
+  background-color: transparent;
+}
+input:focus {
+  outline: none;
+}
+
+/* LABEL */
+label {
+  color: #4b204b;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label,
+input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #4b204b;
+}
+
+/* BOTTOM BARS */
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #4b204b;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #4b204b;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #4b204b;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: transparent;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+/* ----------------INPUT-------------------------------------------------- */
+
+/* --------------------EXPAND ----------------------------------------------*/
+.content {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+}
+.accordionHeader {
+  cursor: pointer;
+  line-height: 25px;
+  padding: 15px;
+}
+.folding-pannel {
+  transition: all 0.2s ease-in;
+  line-height: 40px;
+  border-top: 2px solid #ffffff;
+}
+.active .accordionHeader {
+  border-color: transparent;
+  transition: border-color 0.2s ease-out;
+}
+.inactive .folding-pannel {
+  transform-origin: 50% 0%;
+  transform: perspective(250px) rotateX(-90deg);
+  transition: all 0.4s ease-in-out;
+  height: 0;
+}
+.active .folding-pannel {
+  transform: perspective(350px) rotateX(0deg);
+  transition: all 0.4s ease-in-out;
+  line-height: 50px;
+  text-indent: 40px;
+}
+/* --------------------EXPAND ----------------------------------------------*/
+
+.normal {
+  color: #5d9c4d;
+  text-decoration: none;
+}
+
+/*------------------COMBOBOX--------------------------------------------------*/
+
+.cbox {
+  cursor: pointer;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  width: 40%;
+  min-width: 40%;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  font-family: "proxima-nova", sans-serif;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='292.4' height='292.4' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Ctitle%3Ebackground%3C/title%3E%3Crect x='-1' y='-1' width='294.4' height='294.4' id='canvas_background' fill='none'/%3E%3C/g%3E%3Cg%3E%3Ctitle%3ELayer 1%3C/title%3E%3Cpath fill='%23ffffff' d='m287,69.4a17.6,17.6 0 0 0 -13,-5.4l-255.6,0c-5,0 -9.3,1.8 -12.9,5.4a17.6,17.6 0 0 0 -5.5,12.8c0,5 1.8,9.3 5.4,12.9l128,127.9c3.6,3.6 7.8,5.4 12.8,5.4s9.2,-1.8 12.8,-5.4l128,-128c3.5,-3.5 5.4,-7.8 5.4,-12.8c0,-5 -1.9,-9.2 -5.5,-12.8l0.1,0z' id='svg_1'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(to bottom, rgb(76, 175, 80) 0%, rgb(76, 175, 80) 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+.cbox::-ms-expand {
+  display: none;
+}
+.cbox:hover {
+  border-color: #888;
+}
+.cbox:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(76, 175, 80, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+  background-color: rgba(76, 175, 80, 0.7);
+}
+.cbox option {
+  font-weight: normal;
+  font-family: "proxima-nova", sans-serif;
+}
+
+/*---------------------SELECT-----------------------------------------------*/
+
+.select-css {
+  cursor: pointer;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  width: 40%;
+  max-width: 30%;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  font-family: "proxima-nova", sans-serif;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='292.4' height='292.4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' d='M-1-1h582v402H-1z'/%3E%3Cg%3E%3Cpath d='M287 69.4a17.6 17.6 0 0 0-13-5.4H18.4c-5 0-9.3 1.8-12.9 5.4A17.6 17.6 0 0 0 0 82.2c0 5 1.8 9.3 5.4 12.9l128 127.9c3.6 3.6 7.8 5.4 12.8 5.4s9.2-1.8 12.8-5.4L287 95c3.5-3.5 5.4-7.8 5.4-12.8 0-5-1.9-9.2-5.5-12.8h.1z' fill='%2305af4c'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+.select-css::-ms-expand {
+  display: none;
+}
+.select-css:hover {
+  border-color: #888;
+}
+.select-css:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(76, 175, 80, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+.select-css option {
+  font-weight: normal;
+}
